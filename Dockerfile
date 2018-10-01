@@ -14,8 +14,6 @@ WORKDIR /spc-parity
 RUN cargo build --release --features final
 RUN ln -s /spc-parity/target/release/parity /bin/spc-node
 
-COPY config.toml /root/config.toml
-
 EXPOSE 30303 8545 8546
 
-ENTRYPOINT ["/bin/spc-node --config /root/config.toml"]
+ENTRYPOINT ["/bin/spc-node"]
