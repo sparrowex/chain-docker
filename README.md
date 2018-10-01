@@ -1,1 +1,3 @@
-# sparrow-chain-docker
+# chain-docker
+
+Sparrow Chain Docker container

@@ -1,0 +1,7 @@
+[parity]
+[network]
+port = 30300
+[rpc]
+port = 8545
+[websockets]
+port = 8546
