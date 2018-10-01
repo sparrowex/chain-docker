@@ -9,7 +9,7 @@ Sparrow Chain Docker container
 1. Copy the config file and update settings (if any)
 
     ```bash
-    cp chain-config.toml.default chain-config.toml
+    cp config.toml.default config.toml
     ```
 
 1. Build the image
