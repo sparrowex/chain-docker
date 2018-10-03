@@ -27,5 +27,11 @@ Sparrow Chain Docker container
 1. Run the node, connecting to Sparrow Chain testnet by default
 
     ```bash
-    docker run -ti -p 8545:8545 -p 8546:8546 -p 30303:30303 -p 30303:30303/udp -v ~/.sparrow/:/root/.local/share/io.parity.ethereum/ spc-node --base-path /root/.local/share/io.parity.ethereum/ --config /root/.local/share/io.parity.ethereum/config.toml
+    docker run -ti --name spc-node --rm -p 8545:8545 -p 8546:8546 -p 30303:30303 -p 30303:30303/udp -v ~/.sparrow/:/root/.local/share/io.parity.ethereum/ spc-node --base-path /root/.local/share/io.parity.ethereum/ --config /root/.local/share/io.parity.ethereum/config.toml
+    ```
+
+    Or to run as daemon:
+
+    ```bash
+    docker run -dti --restart unless-stopped --name spc-node -p 8545:8545 -p 8546:8546 -p 30303:30303 -p 30303:30303/udp -v ~/.sparrow/:/root/.local/share/io.parity.ethereum/ spc-node --base-path /root/.local/share/io.parity.ethereum/ --config /root/.local/share/io.parity.ethereum/config.toml
     ```
