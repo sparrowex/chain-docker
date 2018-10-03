@@ -1,8 +1,12 @@
 [parity]
+
 [network]
 port = 30300
+#nat = "extip:"
+
 [rpc]
 port = 8545
+
 [websockets]
 port = 8546
 
