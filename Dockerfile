@@ -7,12 +7,13 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/root/.cargo/bin:$PATH"
 
 # Install SPC client
-RUN git clone https://github.com/sparrowex/chain-node.git /spc-parity
+RUN git clone https://github.com/sparrowex/chain-node.git /sparrow-node
 
-WORKDIR /spc-parity
-# RUN git checkout sparrow
+WORKDIR /sparrow-node
+# COMMENT THIS OUT FOR MASTER RELEASE
+RUN git checkout develop
 RUN cargo build --release --features final
-RUN ln -s /spc-parity/target/release/parity /bin/spc-node
+RUN ln -s /sparrow-node/target/release/parity /bin/spc-node
 
 EXPOSE 30303 8545 8546
 
