@@ -3,15 +3,16 @@ FROM ubuntu:18.04
 RUN apt-get update
 RUN apt-get install -y git curl gcc libudev-dev cmake build-essential nano
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-# RUN /bin/bash -c "source $HOME/.cargo/env"
 ENV PATH="/root/.cargo/bin:$PATH"
 
-# Install SPC client
+# Install Sparrow Chain node client
 RUN git clone https://github.com/sparrowex/chain-node.git /sparrow-node
 
 WORKDIR /sparrow-node
-# COMMENT THIS OUT FOR MASTER RELEASE
-RUN git checkout develop
+
+# UNCOMMENT the following line use develop branch
+# RUN git checkout develop
+
 RUN cargo build --release --features final
 RUN ln -s /sparrow-node/target/release/parity /bin/spc-node
 
