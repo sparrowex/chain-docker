@@ -8,7 +8,18 @@ Docker container to set up and install [Nidus node](https://github.com/sparrowex
 
 - Docker installed. [[Instructions for Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)]
 
-## How
+## Quick and easy start
+
+Ensure that you have Docker installed
+
+```bash
+sudo ./build-n-run.sh
+```
+
+This would automatically build, compile and run Nidus node in a Docker container.
+
+
+## Build and run manually
 
 1. Build the image.
 
@@ -23,7 +34,7 @@ Docker container to set up and install [Nidus node](https://github.com/sparrowex
     cp config.toml.default ~/.nidus/config.toml
     # edit the configuration if needed
     ```
-1. Run the node, connecting to Nidus testnet by default
+1. Run the node, connecting to Nidus mainnet
 
     ```bash
     docker run -ti --name nidus-node --rm -p 8545:8545 -p 8546:8546 -p 30303:30303 -p 30303:30303/udp -v ~/.nidus/:/root/.local/share/io.parity.ethereum/ nidus-node --base-path /root/.local/share/io.parity.ethereum/ --config /root/.local/share/io.parity.ethereum/config.toml
@@ -32,5 +43,5 @@ Docker container to set up and install [Nidus node](https://github.com/sparrowex
     Or to run as daemon:
 
     ```bash
-    docker run -dti --restart unless-stopped --name nidus-node -p 8545:8545 -p 8546:8546 -p 30303:30303 -p 30303:30303/udp -v ~/.nidus/:/root/.local/share/io.parity.ethereum/ nidus-node --base-path /root/.local/share/io.parity.ethereum/ --config /root/.local/share/io.parity.ethereum/config.toml
+    docker run -dti --restart always --name nidus-node -p 8545:8545 -p 8546:8546 -p 30303:30303 -p 30303:30303/udp -v ~/.nidus/:/root/.local/share/io.parity.ethereum/ nidus-node --base-path /root/.local/share/io.parity.ethereum/ --config /root/.local/share/io.parity.ethereum/config.toml
     ```
